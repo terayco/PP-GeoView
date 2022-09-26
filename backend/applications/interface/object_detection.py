@@ -28,19 +28,16 @@ def execute(model_path, data_path, out_dir, names):
     with paddle.no_grad():
         for idx, im in zip(range(len(names)), ims):
             vis = im
-            # 用紫色画出预测目标框
+            # 绘制预测目标框
             if len(pred[idx]) > 0:
                 vis = visualize_detection(
-                    np.array(vis),
-                    pred[idx],
-                    color=np.asarray(
-                        [[255, 0, 255], [255, 0, 0], [0, 0, 255],
-                         [255, 255, 0]],
-                        dtype=np.uint8),
-                    threshold=0.2,
-                    save_dir=None)
+                    np.array(vis), pred[idx], threshold=0.2, save_dir=None)
             name = names[idx]
             new_name = md5_name(name)
             imsave(osp.join(out_dir, new_name), vis)
             temps.append(generate_url + new_name)
     return temps
+
+
+# execute(r'D:\Paddle-GeoView\PP-GeoView\backend\model\object_detector\ppyolo_608x608',r'D:\360MoveData\Users\44651\Desktop\rspic\od',
+#         r'D:\360MoveData\Users\44651\Desktop\rspic\od_res',['aircraft_4.jpg','playground_344.jpg'])

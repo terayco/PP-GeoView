@@ -1,9 +1,10 @@
 import os.path as osp
-import numpy as np
-import paddlers as pdrs
 
-from paddlers.transforms import decode_image
+import numpy as np
 from skimage.io import imsave
+
+import paddlers as pdrs
+from paddlers.transforms import decode_image
 
 
 def Transform_Color(out_dir, names):
@@ -19,6 +20,6 @@ def execute(model_path, data_path, out_dir, names, WINDOW_SIZE, STRIDE):
         data_path,
         save_dir=out_dir,
         transforms=None,
-        block_size=WINDOW_SIZE,
+        block_size=WINDOW_SIZE,    #注意block_size的值不能等于overlap的值
         overlap=STRIDE)
     Transform_Color(out_dir, names)

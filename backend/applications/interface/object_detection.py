@@ -4,6 +4,7 @@ import os.path as osp
 import paddle
 import numpy as np
 from skimage.io import imsave
+from paddlers.models.ppdet.utils.colormap import colormap
 
 import paddlers as pdrs
 from paddlers.transforms import decode_image
@@ -38,6 +39,3 @@ def execute(model_path, data_path, out_dir, names):
             temps.append(generate_url + new_name)
     return temps
 
-
-# execute(r'D:\Paddle-GeoView\PP-GeoView\backend\model\object_detector\ppyolo_608x608',r'D:\360MoveData\Users\44651\Desktop\rspic\od',
-#         r'D:\360MoveData\Users\44651\Desktop\rspic\od_res',['aircraft_4.jpg','playground_344.jpg'])

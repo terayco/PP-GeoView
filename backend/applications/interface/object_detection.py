@@ -38,4 +38,3 @@ def execute(model_path, data_path, out_dir, names):
             imsave(osp.join(out_dir, new_name), vis)
             temps.append(generate_url + new_name)
     return temps
-
